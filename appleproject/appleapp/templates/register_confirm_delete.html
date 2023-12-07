@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Login Object</title>
+</head>
+<body>
+    <h1>Login Delete Object</h1>
+    <p> Are you sure you want to delete</p>
+
+    <ul>
+        <li>
+            <strong>Username:</strong>{{ Object.Username }}<br>
+            <strong>Email:</strong>{{ Object.Email }}<br>
+            <strong>Password:</strong>{{ Object.Password }}
+        </li>
+    </ul>
+    <form method="post" action="{% url 'register_deleteview' object.pk %}">
+        {% csrf_token %}
+        <input type="submit" value="confirm delete">
+    </form>
+    <p><a href="{% url 'register_list' %}">cancel</a></p>
+
+</body>
+</html>
